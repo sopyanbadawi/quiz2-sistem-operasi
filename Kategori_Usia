@@ -1,0 +1,30 @@
+#!/bin/env bash
+
+# INFO: You can test the result of script using following command
+# echo "16" | ./kategori_usia
+
+# Read expression from stdin
+read usia
+
+# WARN: NEVER EDIT THIS BLOCK
+if ! [[ "$usia" =~ ^[0-9]+$ ]]; then
+  echo "Input tidak valid"
+  exit 1
+fi
+
+# TODO: ADD LOGIC AFTER THIS LINE
+if [[ "$usia" -ge 0 &&  "$usia" -le 12 ]]; then
+  echo "Kategori: Anak-anak"
+fi
+
+if [[ "$usia" -ge 13 && "$usia" -le 17 ]]; then
+  echo "Kategori: Remaja"
+fi
+
+if [[ "$usia" -ge 18 && "$usia" -le 59 ]]; then
+  echo "Kategori: Dewasa "
+fi
+
+if [[ "$usia" -ge 60 ]]; then
+  echo "Kategori: Lansia "
+fi

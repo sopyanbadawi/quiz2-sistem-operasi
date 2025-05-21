@@ -1,0 +1,49 @@
+#!/bin/env bash
+
+# INFO: you can test the result of script using following command
+# ./halo --nama Budi --kota Malang
+# you can convert to uppercase using tr command or ${variable^^}
+
+# WARN: DON'T EDIT THIS BLOCK
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  --nama)
+    nama="$2"
+    shift 2
+    ;;
+  --kota)
+    kota="$2"
+    shift 2
+    ;;
+  *)
+    echo "Opsi tidak diketahui $1"
+    exit 1
+    ;;
+  esac
+done
+
+# TODO: ADD VALIDATION
+if [[ -z "$nama" && -z "$kota" ]]; then
+  echo "Error: Parameter --nama wajib diisi."
+  echo "Error: Parameter --kota wajib diisi."
+  exit 0
+fi
+
+if [[ -z "$nama" ]]; then
+  echo "Error: Parameter --nama wajib diisi."
+  exit 0
+fi
+
+if [[ -z "$kota" ]]; then
+  echo "Error: Parameter --kota wajib diisi."
+  exit 0
+fi
+
+# TODO: CONVERT TO UPPERCASE
+nama_upper=${nama^^}
+kota_upper=${kota^^}
+
+if ! [[ -z "$nama" && -z "$kota" ]]; then
+  echo "SELAMAT DATANG $nama_upper DARI KOTA $kota_upper."
+  exit 0
+fi
